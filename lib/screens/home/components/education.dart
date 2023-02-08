@@ -1,0 +1,392 @@
+import 'dart:developer';
+
+import 'package:delayed_display/delayed_display.dart';
+import 'package:flutter/material.dart';
+import 'package:naumanaziz/screens/constants.dart';
+
+class Education extends StatefulWidget {
+  const Education({Key? key}) : super(key: key);
+
+  @override
+  _Education createState() => _Education();
+}
+
+class _Education extends State<Education> {
+  bool edu1 = false;
+  bool edu2 = false;
+  bool edu3 = false;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      color: whiteColor,
+      // height: MediaQuery.of(context).size.height * 0.75,
+      padding: const EdgeInsets.only(top: 20, bottom: 20),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.1),
+              Container(
+                width: 4,
+                height: 36,
+                color: primaryColor,
+              ),
+              const Text(
+                " Education",
+                style: TextStyle(
+                    fontFamily: urbanist,
+                    fontSize: 48,
+                    fontWeight: FontWeight.w700,
+                    color: blackColor),
+              ),
+            ],
+          ),
+          DelayedDisplay(
+            delay: const Duration(milliseconds: 2000),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 100, top: 50),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Spacer(),
+                  MouseRegion(
+                    onEnter: (event) {
+                      onEntered(true);
+                    },
+                    onExit: (event) {
+                      onEntered(false);
+                    },
+                    child: edu1
+                        ? Container(
+                            padding: const EdgeInsets.only(
+                                left: 24, right: 24, top: 20, bottom: 20),
+                            width: MediaQuery.of(context).size.width * 0.25,
+                            color: const Color(0xffDEEFE4),
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Master of Computer\nSciences",
+                                      style: TextStyle(
+                                          fontFamily: urbanist,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w700,
+                                          color: blackColor),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Divider(
+                                    height: 4,
+                                    color: blackColor,
+                                  ),
+                                  SizedBox(
+                                    height: 25,
+                                  ),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "My Master's in Computer Science from Bahauddin Zakariya University in 2007 was a turning point in my career. The knowledge and skills I gained have been instrumental in my professional growth and have opened up many opportunities for me.",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400,
+                                          color: blackColor),
+                                    ),
+                                  ),
+                                ]),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.only(top: 20, bottom: 20),
+                            child: Container(
+                              padding: const EdgeInsets.only(
+                                  left: 24, right: 24, top: 20, bottom: 20),
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              color: const Color(0xffDEEFE4),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "Master of Computer\nSciences",
+                                        style: TextStyle(
+                                            fontFamily: urbanist,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w700,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Divider(
+                                      height: 4,
+                                      color: blackColor,
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "My Master's in Computer Science from Bahauddin Zakariya University in 2007 was a turning point in my career. The knowledge and skills I gained have been instrumental in my professional growth and have opened up many opportunities for me.",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                  ]),
+                            ),
+                          ),
+                  ),
+                  const Spacer(),
+                  MouseRegion(
+                    onEnter: (event) {
+                      onEntered1(true);
+                    },
+                    onExit: (event) {
+                      onEntered1(false);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 80),
+                      child: edu2
+                          ? Container(
+                              padding: const EdgeInsets.only(
+                                  left: 24, right: 24, top: 20, bottom: 20),
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              color: const Color(0xffF3F3D7),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "Master of Science in\nComputer Science (MSCS)",
+                                        style: TextStyle(
+                                            fontFamily: urbanist,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w700,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Divider(
+                                      height: 4,
+                                      color: blackColor,
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "I am proud to say that I have completed my Master of Science in Computer Science from Superior University. It was a challenging and rewarding experience that has prepared me well for my career in the field.",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                  ]),
+                            )
+                          : Container(
+                              padding: const EdgeInsets.only(
+                                  left: 24, right: 24, top: 20, bottom: 20),
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              color: const Color(0xffF3F3D7),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "Master of Science in\nComputer Science (MSCS)",
+                                        style: TextStyle(
+                                            fontFamily: urbanist,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w700,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Divider(
+                                      height: 4,
+                                      color: blackColor,
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "I am proud to say that I have completed my Master of Science in Computer Science from Superior University. It was a challenging and rewarding experience that has prepared me well for my career in the field.",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                  ]),
+                            ),
+                    ),
+                  ),
+                  const Spacer(),
+                  MouseRegion(
+                    onEnter: (event) {
+                      onEntered2(true);
+                    },
+                    onExit: (event) {
+                      onEntered2(false);
+                    },
+                    child: SizedBox(
+                      child: edu3
+                          ? Container(
+                              padding: const EdgeInsets.only(
+                                  left: 24, right: 24, top: 20, bottom: 20),
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              color: const Color(0xffEFDEEE),
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "PHD Scholar",
+                                        style: TextStyle(
+                                            fontFamily: urbanist,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w700,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Divider(
+                                      height: 4,
+                                      color: blackColor,
+                                    ),
+                                    SizedBox(
+                                      height: 25,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "I am currently pursuing my Ph.D. in Computer Science, which is an exciting and challenging journey that I am proud to be a part of. The research and knowledge I am gaining will have a long-term impact on my career and in the field of computer science.",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                                    ),
+                                  ]),
+                            )
+                          : Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 20, bottom: 20),
+                              child: Container(
+                                padding: const EdgeInsets.only(
+                                    left: 24, right: 24, top: 20, bottom: 20),
+                                width: MediaQuery.of(context).size.width * 0.25,
+                                color: const Color(0xffEFDEEE),
+                                child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const [
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "PHD Scholar",
+                                          style: TextStyle(
+                                              fontFamily: urbanist,
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.w700,
+                                              color: blackColor),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 25,
+                                      ),
+                                      Divider(
+                                        height: 4,
+                                        color: blackColor,
+                                      ),
+                                      SizedBox(
+                                        height: 25,
+                                      ),
+                                      Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "I am currently pursuing my Ph.D. in Computer Science, which is an exciting and challenging journey that I am proud to be a part of. The research and knowledge I am gaining will have a long-term impact on my career and in the field of computer science.",
+                                          style: TextStyle(
+                                              fontFamily: poppinsLight,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w400,
+                                              color: blackColor),
+                                        ),
+                                      ),
+                                    ]),
+                              ),
+                            ),
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  onEntered(bool bool) {
+    if (bool) {
+      setState(() {
+        edu1 = true;
+      });
+    } else {
+      setState(() {
+        edu1 = false;
+      });
+    }
+  }
+
+  onEntered1(bool bool) {
+    if (bool) {
+      setState(() {
+        edu2 = true;
+      });
+    } else {
+      setState(() {
+        edu2 = false;
+      });
+    }
+  }
+
+  onEntered2(bool bool) {
+    if (bool) {
+      setState(() {
+        edu3 = true;
+      });
+    } else {
+      setState(() {
+        edu3 = false;
+      });
+    }
+  }
+}
