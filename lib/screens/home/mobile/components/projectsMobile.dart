@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:naumanaziz/screens/constants.dart';
 
+import '../../components/buttons.dart';
+
 class ProjectsMobile extends StatefulWidget {
   const ProjectsMobile({Key? key}) : super(key: key);
 
@@ -25,453 +27,450 @@ class _Projects extends State<ProjectsMobile> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(left: 30),
       decoration: const BoxDecoration(color: whiteColor),
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(width: 30),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          const SizedBox(
+            height: 40,
+          ),
+          Row(
             children: [
-              const SizedBox(
-                height: 40,
+              Container(
+                width: 4,
+                height: 30,
+                color: primaryColor,
               ),
-              Row(
-                children: [
-                  Container(
-                    width: 4,
-                    height: 30,
-                    color: primaryColor,
-                  ),
-                  const Text(
-                    " My Projects",
-                    style: TextStyle(
-                        fontFamily: urbanist,
-                        fontSize: 24,
-                        fontWeight: FontWeight.w700,
-                        color: blackColor),
-                  ),
-                ],
+              const Text(
+                " My Projects",
+                style: TextStyle(
+                    fontFamily: urbanist,
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: blackColor),
               ),
-              const SizedBox(
-                height: 40,
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.9,
-                child: StaggeredGrid.count(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 4,
-                  crossAxisSpacing: 4,
-                  children: [
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 4,
-                        mainAxisCellCount: 2,
-                        child: GestureDetector(
-                          child: MouseRegion(
-                            onEnter: (event) => {onEntered(true)},
-                            onExit: (event) => {onEntered(false)},
-                            child: p1
-                                ? Stack(
-                                    fit: StackFit.expand,
-                                    children: [
-                                      InkWell(
-                                        onHover: ((value) {
-                                          log(value.toString());
-                                          setState(() {
-                                            p1 = value;
-                                          });
-                                        }),
-                                        child: Image.asset(
-                                            'assets/images/p1.png',
-                                            fit: BoxFit.cover),
-                                      ),
-                                      InkWell(
-                                        onHover: ((value) {
-                                          log(value.toString());
-                                          setState(() {
-                                            p1 = value;
-                                          });
-                                        }),
-                                        child: ClipRRect(
-                                          child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaX: 5, sigmaY: 5),
-                                            child: Container(
-                                              color: const Color(0xff8183F8)
-                                                  .withOpacity(0.2),
-                                              alignment: Alignment.center,
-                                              child: DelayedDisplay(
-                                                delay: const Duration(
-                                                    milliseconds: 300),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'United Insurance -'
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                    ),
-                                                    Text(
-                                                      ' Insurance Website'
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Image.asset(
-                                    "assets/images/p1.png",
-                                    fit: BoxFit.fill,
-                                  ),
-                          ),
-                        )),
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 2,
-                        mainAxisCellCount: 2,
-                        child: MouseRegion(
-                          onEnter: (event) => {onEnteredp2(true)},
-                          onExit: (event) => {onEnteredp2(false)},
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 5.0, bottom: 5),
-                            child: p2
-                                ? Stack(
-                                    fit: StackFit.expand,
-                                    children: [
-                                      Image.asset('assets/images/p2.png',
-                                          fit: BoxFit.cover),
-                                      ClipRRect(
-                                        child: BackdropFilter(
-                                          filter: ImageFilter.blur(
-                                              sigmaX: 5, sigmaY: 5),
-                                          child: Container(
-                                            color: const Color(0xffECE7FF)
-                                                .withOpacity(0.2),
-                                            alignment: Alignment.center,
-                                            child: DelayedDisplay(
-                                              delay: const Duration(
-                                                  milliseconds: 300),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'United Tracker -'
-                                                        .toUpperCase(),
-                                                    style: const TextStyle(
-                                                        fontFamily: urbanist,
-                                                        color: Colors.black,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w800),
-                                                  ),
-                                                  Text(
-                                                    'Tracking App'
-                                                        .toUpperCase(),
-                                                    style: const TextStyle(
-                                                        fontFamily: urbanist,
-                                                        color: Colors.black,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Image.asset(
-                                    "assets/images/p2.png",
-                                    fit: BoxFit.fitHeight,
-                                  ),
-                          ),
-                        )),
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 2,
-                        mainAxisCellCount: 2,
-                        child: MouseRegion(
-                          onEnter: (event) => {onEnteredp3(true)},
-                          onExit: (event) => {onEnteredp3(false)},
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 5.0),
-                            child: p3
-                                ? Stack(
-                                    fit: StackFit.expand,
-                                    children: [
-                                      Image.asset('assets/images/p3.png',
-                                          fit: BoxFit.cover),
-                                      ClipRRect(
-                                        child: BackdropFilter(
-                                          filter: ImageFilter.blur(
-                                              sigmaX: 5, sigmaY: 5),
-                                          child: Container(
-                                            color: const Color(0xff7AB5AB)
-                                                .withOpacity(0.2),
-                                            alignment: Alignment.center,
-                                            child: DelayedDisplay(
-                                              delay: const Duration(
-                                                  milliseconds: 300),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    'Human pay -'.toUpperCase(),
-                                                    style: const TextStyle(
-                                                        fontFamily: urbanist,
-                                                        color: Colors.black,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w800),
-                                                  ),
-                                                  Text(
-                                                    ' Salary app'.toUpperCase(),
-                                                    style: const TextStyle(
-                                                        fontFamily: urbanist,
-                                                        color: Colors.black,
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : Image.asset(
-                                    "assets/images/p3.png",
-                                    fit: BoxFit.fitHeight,
-                                  ),
-                          ),
-                        )),
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 2,
-                        mainAxisCellCount: 2,
-                        child: GestureDetector(
-                          onTap: () => showAlertDialog(context, yiwuImages),
-                          child: MouseRegion(
-                            onEnter: (event) => {onEnteredp4(true)},
-                            onExit: (event) => {onEnteredp4(false)},
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 10.0, top: 10.0),
-                              child: p4
-                                  ? Stack(
-                                      fit: StackFit.expand,
-                                      children: [
-                                        Image.asset('assets/images/p4.png',
-                                            fit: BoxFit.cover),
-                                        ClipRRect(
-                                          child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaX: 5, sigmaY: 5),
-                                            child: Container(
-                                              color: const Color(0xffD42F24)
-                                                  .withOpacity(0.2),
-                                              alignment: Alignment.center,
-                                              child: DelayedDisplay(
-                                                delay: const Duration(
-                                                    milliseconds: 300),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'Yiwu Bazar - '
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                    ),
-                                                    Text(
-                                                      'ecommerce store'
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Image.asset(
-                                      "assets/images/p4.png",
-                                      fit: BoxFit.fitHeight,
-                                    ),
-                            ),
-                          ),
-                        )),
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 2,
-                        mainAxisCellCount: 2,
-                        child: GestureDetector(
-                          onTap: () => showAlertDialog(context, uicImages),
-                          child: MouseRegion(
-                            onEnter: (event) => {onEnteredp5(true)},
-                            onExit: (event) => {onEnteredp5(false)},
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: p5
-                                  ? Stack(
-                                      fit: StackFit.expand,
-                                      children: [
-                                        Image.asset('assets/images/p5.png',
-                                            fit: BoxFit.cover),
-                                        ClipRRect(
-                                          child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaX: 5, sigmaY: 5),
-                                            child: Container(
-                                              color: const Color(0xff081945)
-                                                  .withOpacity(0.2),
-                                              alignment: Alignment.center,
-                                              child: DelayedDisplay(
-                                                delay: const Duration(
-                                                    milliseconds: 300),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'united Insurance - '
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                    ),
-                                                    Text(
-                                                      'insurance app'
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Image.asset(
-                                      "assets/images/p5.png",
-                                      fit: BoxFit.fitHeight,
-                                    ),
-                            ),
-                          ),
-                        )),
-                    StaggeredGridTile.count(
-                        crossAxisCellCount: 4,
-                        mainAxisCellCount: 2,
-                        child: GestureDetector(
-                          onTap: () =>
-                              showAlertDialog(context, reflactionImages),
-                          child: MouseRegion(
-                            onEnter: (event) => {onEnteredp6(true)},
-                            onExit: (event) => {onEnteredp6(false)},
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: p6
-                                  ? Stack(
-                                      fit: StackFit.expand,
-                                      children: [
-                                        Image.asset('assets/images/p6.png',
-                                            fit: BoxFit.cover),
-                                        ClipRRect(
-                                          child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaX: 5, sigmaY: 5),
-                                            child: Container(
-                                              color: const Color(0xffB8ADC5)
-                                                  .withOpacity(0.2),
-                                              alignment: Alignment.center,
-                                              child: DelayedDisplay(
-                                                delay: const Duration(
-                                                    milliseconds: 300),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      'reflection - '
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w800),
-                                                    ),
-                                                    Text(
-                                                      'task management app'
-                                                          .toUpperCase(),
-                                                      style: const TextStyle(
-                                                          fontFamily: urbanist,
-                                                          color: Colors.black,
-                                                          fontSize: 16,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  : Image.asset(
-                                      "assets/images/p6.png",
-                                      fit: BoxFit.cover,
-                                    ),
-                            ),
-                          ),
-                        )),
-                  ],
-                ),
-              )
             ],
           ),
+          const SizedBox(
+            height: 40,
+          ),
+          // const ButtonsWidget(
+          //   ui: false,
+          //   flutter: false,
+          //   net: false,
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: StaggeredGrid.count(
+              crossAxisCount: 4,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+              children: [
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 4,
+                    mainAxisCellCount: 2,
+                    child: GestureDetector(
+                      child: MouseRegion(
+                        onEnter: (event) => {onEntered(true)},
+                        onExit: (event) => {onEntered(false)},
+                        child: p1
+                            ? Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  InkWell(
+                                    onHover: ((value) {
+                                      log(value.toString());
+                                      setState(() {
+                                        p1 = value;
+                                      });
+                                    }),
+                                    child: Image.asset('assets/images/p1.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  InkWell(
+                                    onHover: ((value) {
+                                      log(value.toString());
+                                      setState(() {
+                                        p1 = value;
+                                      });
+                                    }),
+                                    child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xff8183F8)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'United Insurance -'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  ' Insurance Website'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Image.asset(
+                                "assets/images/p1.png",
+                                fit: BoxFit.fill,
+                              ),
+                      ),
+                    )),
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: MouseRegion(
+                      onEnter: (event) => {onEnteredp2(true)},
+                      onExit: (event) => {onEnteredp2(false)},
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5.0, bottom: 5),
+                        child: p2
+                            ? Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Image.asset('assets/images/p2.png',
+                                      fit: BoxFit.cover),
+                                  ClipRRect(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                          sigmaX: 5, sigmaY: 5),
+                                      child: Container(
+                                        color: const Color(0xffECE7FF)
+                                            .withOpacity(0.2),
+                                        alignment: Alignment.center,
+                                        child: DelayedDisplay(
+                                          delay:
+                                              const Duration(milliseconds: 300),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'United Tracker -'
+                                                    .toUpperCase(),
+                                                style: const TextStyle(
+                                                    fontFamily: urbanist,
+                                                    color: Colors.black,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w800),
+                                              ),
+                                              Text(
+                                                'Tracking App'.toUpperCase(),
+                                                style: const TextStyle(
+                                                    fontFamily: urbanist,
+                                                    color: Colors.black,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Image.asset(
+                                "assets/images/p2.png",
+                                fit: BoxFit.fitHeight,
+                              ),
+                      ),
+                    )),
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: MouseRegion(
+                      onEnter: (event) => {onEnteredp3(true)},
+                      onExit: (event) => {onEnteredp3(false)},
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 5.0),
+                        child: p3
+                            ? Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Image.asset('assets/images/p3.png',
+                                      fit: BoxFit.cover),
+                                  ClipRRect(
+                                    child: BackdropFilter(
+                                      filter: ImageFilter.blur(
+                                          sigmaX: 5, sigmaY: 5),
+                                      child: Container(
+                                        color: const Color(0xff7AB5AB)
+                                            .withOpacity(0.2),
+                                        alignment: Alignment.center,
+                                        child: DelayedDisplay(
+                                          delay:
+                                              const Duration(milliseconds: 300),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                'Human pay -'.toUpperCase(),
+                                                style: const TextStyle(
+                                                    fontFamily: urbanist,
+                                                    color: Colors.black,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w800),
+                                              ),
+                                              Text(
+                                                ' Salary app'.toUpperCase(),
+                                                style: const TextStyle(
+                                                    fontFamily: urbanist,
+                                                    color: Colors.black,
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Image.asset(
+                                "assets/images/p3.png",
+                                fit: BoxFit.fitHeight,
+                              ),
+                      ),
+                    )),
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: GestureDetector(
+                      onTap: () => showAlertDialog(context, yiwuImages),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEnteredp4(true)},
+                        onExit: (event) => {onEnteredp4(false)},
+                        child: Padding(
+                          padding:
+                              const EdgeInsets.only(right: 10.0, top: 10.0),
+                          child: p4
+                              ? Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset('assets/images/p4.png',
+                                        fit: BoxFit.cover),
+                                    ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xffD42F24)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Yiwu Bazar - '.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  'ecommerce store'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Image.asset(
+                                  "assets/images/p4.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
+                        ),
+                      ),
+                    )),
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 2,
+                    mainAxisCellCount: 2,
+                    child: GestureDetector(
+                      onTap: () => showAlertDialog(context, uicImages),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEnteredp5(true)},
+                        onExit: (event) => {onEnteredp5(false)},
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: p5
+                              ? Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset('assets/images/p5.png',
+                                        fit: BoxFit.cover),
+                                    ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xff081945)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'united Insurance - '
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  'insurance app'.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Image.asset(
+                                  "assets/images/p5.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
+                        ),
+                      ),
+                    )),
+                StaggeredGridTile.count(
+                    crossAxisCellCount: 4,
+                    mainAxisCellCount: 2,
+                    child: GestureDetector(
+                      onTap: () => showAlertDialog(context, reflactionImages),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEnteredp6(true)},
+                        onExit: (event) => {onEnteredp6(false)},
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: p6
+                              ? Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset('assets/images/p6.png',
+                                        fit: BoxFit.cover),
+                                    ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xffB8ADC5)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'reflection - '.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  'task management app'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 16,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Image.asset(
+                                  "assets/images/p6.png",
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+          )
         ],
       ),
     );

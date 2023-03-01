@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'dart:developer';
 import 'package:emailjs/emailjs.dart';
 import 'package:flutter/material.dart';
 import 'package:naumanaziz/screens/constants.dart';
@@ -17,7 +20,6 @@ import 'package:naumanaziz/screens/home/mobile/components/getInTouch.dart';
 import 'package:naumanaziz/screens/home/mobile/components/helpYouMobile.dart';
 import 'package:naumanaziz/screens/home/mobile/components/projectsMobile.dart';
 import 'package:naumanaziz/screens/home/mobile/components/testimonialsMobile.dart';
-import 'package:naumanaziz/screens/home/mobile/drawer.dart';
 import 'package:naumanaziz/screens/responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -304,58 +306,83 @@ class _HomeScreen extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/animated.png'),
-            fit: BoxFit.fill,
-          ),
-        ),
-        width: MediaQuery.of(context).size.width,
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              //appbar for
-              if (Responsive.isDesktop(context)) ...[
-                Container(
-                  color: whiteColor,
-                  height: 37,
-                ),
-                Container(
-                  color: whiteColor,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Spacer(
-                        flex: 1,
-                      ),
-                      Image.asset(
-                        "assets/images/signature.png",
-                        width: 147,
-                        height: 37,
-                      ),
-                      const Spacer(
-                        flex: 5,
-                      ),
-                      // ignore: avoid_unnecessary_containers
-                      Row(
-                        children: [
-                          GestureDetector(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            //appbar for
+            if (Responsive.isDesktop(context)) ...[
+              Container(
+                color: whiteColor,
+                height: 37,
+              ),
+              Container(
+                color: whiteColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    Image.asset(
+                      "assets/images/signature.png",
+                      width: 147,
+                      height: 37,
+                    ),
+                    const Spacer(
+                      flex: 5,
+                    ),
+                    // ignore: avoid_unnecessary_containers
+                    Row(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            scrollPointAbout();
+                          },
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              onEntered(true);
+                            },
+                            onExit: (event) {
+                              onEntered(false);
+                            },
+                            child: aboutcheck
+                                ? const Text(
+                                    "About",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w900,
+                                        color: primaryColor),
+                                  )
+                                : const Text(
+                                    "About",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: blackColor),
+                                  ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 44,
+                        ),
+                        GestureDetector(
                             onTap: () {
-                              scrollPointAbout();
+                              scrollPointService();
                             },
                             child: MouseRegion(
                               onEnter: (event) {
-                                onEntered(true);
+                                onEntered1(true);
                               },
                               onExit: (event) {
-                                onEntered(false);
+                                onEntered1(false);
                               },
-                              child: aboutcheck
+                              child: servicecheck
                                   ? const Text(
-                                      "About",
+                                      "Service",
                                       style: TextStyle(
                                           fontFamily: poppinsLight,
                                           fontSize: 18,
@@ -363,215 +390,181 @@ class _HomeScreen extends State<HomeScreen> {
                                           color: primaryColor),
                                     )
                                   : const Text(
-                                      "About",
+                                      "Service",
                                       style: TextStyle(
                                           fontFamily: poppinsLight,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400,
                                           color: blackColor),
                                     ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 44,
-                          ),
-                          GestureDetector(
-                              onTap: () {
-                                scrollPointService();
-                              },
-                              child: MouseRegion(
-                                onEnter: (event) {
-                                  onEntered1(true);
-                                },
-                                onExit: (event) {
-                                  onEntered1(false);
-                                },
-                                child: servicecheck
-                                    ? const Text(
-                                        "Service",
-                                        style: TextStyle(
-                                            fontFamily: poppinsLight,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w900,
-                                            color: primaryColor),
-                                      )
-                                    : const Text(
-                                        "Service",
-                                        style: TextStyle(
-                                            fontFamily: poppinsLight,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w400,
-                                            color: blackColor),
-                                      ),
-                              )),
-                          const SizedBox(
-                            width: 44,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              scrollPointProjects();
+                            )),
+                        const SizedBox(
+                          width: 44,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            scrollPointProjects();
+                          },
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              onEntered2(true);
                             },
-                            child: MouseRegion(
-                              onEnter: (event) {
-                                onEntered2(true);
-                              },
-                              onExit: (event) {
-                                onEntered2(false);
-                              },
-                              child: projectscheck
-                                  ? const Text(
-                                      "Projects",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w900,
-                                          color: primaryColor),
-                                    )
-                                  : const Text(
-                                      "Projects",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: blackColor),
-                                    ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 44,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              scrollPointTestimonilas();
+                            onExit: (event) {
+                              onEntered2(false);
                             },
-                            child: MouseRegion(
-                              onEnter: (event) {
-                                onEntered3(true);
-                              },
-                              onExit: (event) {
-                                onEntered3(false);
-                              },
-                              child: reviewscheck
-                                  ? const Text(
-                                      "Reviews",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w900,
-                                          color: primaryColor),
-                                    )
-                                  : const Text(
-                                      "Reviews",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: blackColor),
-                                    ),
-                            ),
+                            child: projectscheck
+                                ? const Text(
+                                    "Projects",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w900,
+                                        color: primaryColor),
+                                  )
+                                : const Text(
+                                    "Projects",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: blackColor),
+                                  ),
                           ),
-                          const SizedBox(
-                            width: 44,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              scrollPointContact();
+                        ),
+                        const SizedBox(
+                          width: 44,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            scrollPointTestimonilas();
+                          },
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              onEntered3(true);
                             },
-                            child: MouseRegion(
-                              onEnter: (event) {
-                                onEntered4(true);
-                              },
-                              onExit: (event) {
-                                onEntered4(false);
-                              },
-                              child: contactcheck
-                                  ? const Text(
-                                      "Contact",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w900,
-                                          color: primaryColor),
-                                    )
-                                  : const Text(
-                                      "Contact",
-                                      style: TextStyle(
-                                          fontFamily: poppinsLight,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w400,
-                                          color: blackColor),
-                                    ),
-                            ),
+                            onExit: (event) {
+                              onEntered3(false);
+                            },
+                            child: reviewscheck
+                                ? const Text(
+                                    "Reviews",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w900,
+                                        color: primaryColor),
+                                  )
+                                : const Text(
+                                    "Reviews",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: blackColor),
+                                  ),
                           ),
-                        ],
-                      ),
-                      const Spacer(
-                        flex: 5,
-                      ),
-                      GestureDetector(
-                        onTap: (() {
-                          //dialouge box
-                          showAlertDialogHireMe(context);
-                        }),
-                        child: Container(
-                          color: blackColor,
-                          width: 180,
-                          height: 40,
-                          child: const Center(
-                            child: Text(
-                              "Hire me!",
-                              style: TextStyle(
-                                  fontFamily: poppinsLight,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w600,
-                                  color: whiteColor),
-                            ),
+                        ),
+                        const SizedBox(
+                          width: 44,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            scrollPointContact();
+                          },
+                          child: MouseRegion(
+                            onEnter: (event) {
+                              onEntered4(true);
+                            },
+                            onExit: (event) {
+                              onEntered4(false);
+                            },
+                            child: contactcheck
+                                ? const Text(
+                                    "Contact",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w900,
+                                        color: primaryColor),
+                                  )
+                                : const Text(
+                                    "Contact",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w400,
+                                        color: blackColor),
+                                  ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(
+                      flex: 5,
+                    ),
+                    GestureDetector(
+                      onTap: (() {
+                        //dialouge box
+                        showAlertDialogHireMe(context);
+                      }),
+                      child: Container(
+                        color: blackColor,
+                        width: 180,
+                        height: 40,
+                        child: const Center(
+                          child: Text(
+                            "Hire me!",
+                            style: TextStyle(
+                                fontFamily: poppinsLight,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: whiteColor),
                           ),
                         ),
                       ),
-                      const Spacer(
-                        flex: 1,
-                      ),
-                    ],
-                  ),
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                  ],
                 ),
-                const Info(),
-                //howcanihelpyou
-                Container(key: service, child: const HowCanIhELP()),
-                Container(
-                  height: 300,
-                  color: Colors.transparent,
-                ),
-                //about me
-                GestureDetector(key: about, child: const AboutMe()),
-                //education
-                const Education(),
-                //certificates
-                Container(color: whiteColor, child: const Certificates()),
-                //projects
-                Container(key: project, child: const Projects()),
-                //testimionials
-                Container(key: testimonials, child: const Testinomials()),
-                //get in touch
-                Container(key: contact, child: const GetinTouch()),
-              ] else ...[
-                const InfoMobile(),
-                Container(key: service, child: const HowCanMobile()),
-                Container(
-                  height: 200,
-                  color: Colors.transparent,
-                ),
-                Container(key: about, child: const AboutMeMobile()),
-                //education
-                const EducationMobile(),
-                //certifictates
-                const CertificatesMobile(),
-                Container(key: project, child: const ProjectsMobile()),
-                Container(key: testimonials, child: const TestinomialsMobile()),
-                Container(key: contact, child: const GetinTouchMobile()),
-              ],
+              ),
+              const Info(),
+              //howcanihelpyou
+              Container(key: service, child: const HowCanIhELP()),
+              Container(
+                height: 50,
+                color: Colors.transparent,
+              ),
+              //about me
+              GestureDetector(key: about, child: const AboutMe()),
+              //education
+              const Education(),
+              //certificates
+              Container(color: whiteColor, child: const Certificates()),
+              //projects
+              Container(key: project, child: const Projects()),
+              //testimionials
+              Container(key: testimonials, child: const Testinomials()),
+              //get in touch
+              Container(key: contact, child: const GetinTouch()),
+            ] else ...[
+              const InfoMobile(),
+              Container(key: service, child: const HowCanMobile()),
+              Container(
+                height: 50,
+                color: Colors.transparent,
+              ),
+              Container(key: about, child: const AboutMeMobile()),
+              //education
+              const EducationMobile(),
+              //certifictates
+              const CertificatesMobile(),
+              Container(key: project, child: const ProjectsMobile()),
+              Container(key: testimonials, child: const TestinomialsMobile()),
+              Container(key: contact, child: const GetinTouchMobile()),
             ],
-          ),
+          ],
         ),
       ),
     );
@@ -653,225 +646,170 @@ class _HomeScreen extends State<HomeScreen> {
     // Create AlertDialog
     AlertDialog alert = AlertDialog(
       backgroundColor: whiteColor,
-      content: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(30.0),
+      insetPadding: const EdgeInsets.all(40),
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
+      content: Padding(
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+        child: SingleChildScrollView(
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+              //okButton
+              Image.asset(
+                "assets/images/hireMe.png",
+                width: 161,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  //okButton
-                  Image.asset(
-                    "assets/images/hireMe.png",
-                    height: 202,
-                    width: 161,
+                  const Text(
+                    "Hey there!",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        color: blackColor),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Hey there!",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 40,
-                            fontWeight: FontWeight.w600,
-                            color: blackColor),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        child: const Text(
-                          "If you're ready to get started on your project, I'd love to hear all about your story. So don't hesitate to reach out write your name and  message here and let's get the ball rolling!",
-                          style: TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              color: blackColor),
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: const Text(
+                      "If you're ready to get started on your project, I'd love to hear all about your story. So don't hesitate to reach out write your name and  message here and let's get the ball rolling!",
+                      style: TextStyle(
+                          fontFamily: urbanist,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: blackColor),
+                    ),
                   ),
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              Row(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Name",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        padding: const EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
-                          controller: name,
-                          style: const TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      const Text(
-                        "Email",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                      Container(
-                        height: 50,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        padding: const EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
-                          controller: email,
-                          style: const TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
-                      )
-                    ],
+                  const Text(
+                    "Name",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor),
                   ),
-                  Column(
-                    children: [
-                      const Text(
-                        "Message",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                      Container(
-                        height: 185,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        padding: const EdgeInsets.only(left: 10),
-                        decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
-                            borderRadius: BorderRadius.circular(5)),
-                        child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
-                          controller: message,
-                          style: const TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
-                      )
-                    ],
+                  Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    padding: const EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: TextFormField(
+                      decoration:
+                          const InputDecoration(border: InputBorder.none),
+                      controller: name,
+                      style: const TextStyle(
+                          fontFamily: poppinsLight,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: blackColor),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  const Text(
+                    "Email",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor),
+                  ),
+                  Container(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    padding: const EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: TextFormField(
+                      decoration:
+                          const InputDecoration(border: InputBorder.none),
+                      controller: email,
+                      style: const TextStyle(
+                          fontFamily: poppinsLight,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: blackColor),
+                    ),
                   )
                 ],
               ),
               const SizedBox(
-                height: 60,
+                height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(
-                    width: 10,
+                  const Text(
+                    "Message",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor),
                   ),
                   Container(
-                      padding: const EdgeInsets.only(
-                          left: 10, right: 10, top: 10, bottom: 10),
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Colors.grey),
-                          borderRadius: BorderRadius.circular(5)),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/email.png",
-                            width: 48,
-                            height: 48,
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                "email",
-                                style: TextStyle(
-                                    fontFamily: poppinsLight,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                    color: blackColor),
-                              ),
-                              Text(
-                                "na.pitafi@gmail.com",
-                                style: TextStyle(
-                                    fontFamily: poppinsLight,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400,
-                                    color: primaryColor),
-                              ),
-                            ],
-                          )
-                        ],
-                      )),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Uri url = Uri.parse(
-                          "https://www.linkedin.com/in/nauman-aziz-pitafi-34994115/");
-                      _launchInBrowser(url);
-                    },
-                    child: Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    padding: const EdgeInsets.only(left: 10),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.grey),
+                        borderRadius: BorderRadius.circular(5)),
+                    child: TextFormField(
+                      maxLines: 6,
+                      decoration:
+                          const InputDecoration(border: InputBorder.none),
+                      controller: message,
+                      style: const TextStyle(
+                          fontFamily: poppinsLight,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                          color: blackColor),
+                    ),
+                  )
+                ],
+              ),
+
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20),
+                child: Wrap(
+                  spacing: 20,
+                  runSpacing: 20,
+                  children: [
+                    Container(
+                        width: 300,
                         padding: const EdgeInsets.only(
                             left: 10, right: 10, top: 10, bottom: 10),
                         decoration: BoxDecoration(
                             border: Border.all(width: 1, color: Colors.grey),
                             borderRadius: BorderRadius.circular(5)),
-                        child: Row(
+                        child: Column(
                           children: [
                             Image.asset(
-                              "assets/images/lindkin.png",
+                              "assets/images/email.png",
                               width: 48,
                               height: 48,
                             ),
-                            const SizedBox(
-                              width: 20,
-                            ),
                             Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: const [
                                 Text(
-                                  "LinkdIn",
+                                  "Email",
                                   style: TextStyle(
                                       fontFamily: poppinsLight,
                                       fontSize: 18,
@@ -879,7 +817,7 @@ class _HomeScreen extends State<HomeScreen> {
                                       color: blackColor),
                                 ),
                                 Text(
-                                  "Nouman Aziz",
+                                  "na.pitafi@gmail.com",
                                   style: TextStyle(
                                       fontFamily: poppinsLight,
                                       fontSize: 16,
@@ -890,80 +828,138 @@ class _HomeScreen extends State<HomeScreen> {
                             )
                           ],
                         )),
-                  ),
-                  const SizedBox(
-                    width: 90,
-                  ),
-                  GestureDetector(
-                    onTap: () async {
-                      if (name.text.isNotEmpty &&
-                          email.text.isNotEmpty &&
-                          message.text.isNotEmpty &&
-                          name.text == "Enter Name" &&
-                          message.text == "Enter Something" &&
-                          email.text == "Enter email") {
-                        Map<String, dynamic> templateParams = {
-                          'name': name.text,
-                          'email': email.text,
-                          'notes': message.text,
-                        };
-
-                        try {
-                          await EmailJS.send(
-                            'service_1oo06mw',
-                            'template_ph52nx9',
-                            templateParams,
-                            const Options(
-                              publicKey: 'otov4MchrvEKmvNhE',
-                              privateKey: 'FOrWHZReSmPtxvazQqzFi',
-                            ),
-                          );
-                          print('SUCCESS!');
-                          Navigator.pop(context);
-                        } catch (error) {
-                          print(error.toString());
-                        }
-                      } else {
-                        if (email.text.isEmpty) {
-                          email.text = "Enter email";
-                        }
-                        if (message.text.isEmpty) {
-                          message.text = "Enter Something";
-                        }
-                        if (name.text.isEmpty) {
-                          name.text = "Enter Name";
-                        }
-                      }
-                    },
-                    child: Container(
-                      color: primaryColor,
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      height: 40,
-                      child: Center(
-                        child: Row(
-                          children: [
-                            const Text(
-                              "Send",
-                              style: TextStyle(
-                                  fontFamily: poppinsLight,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  color: whiteColor),
-                            ),
-                            Image.asset(
-                              "assets/images/send.png",
-                              width: 20,
-                              height: 20,
-                            )
-                          ],
-                        ),
-                      ),
+                    GestureDetector(
+                      onTap: () {
+                        Uri url = Uri.parse(
+                            "https://www.linkedin.com/in/nauman-aziz-pitafi-34994115/");
+                        _launchInBrowser(url);
+                      },
+                      child: Container(
+                          width: 300,
+                          padding: const EdgeInsets.only(
+                              left: 10, right: 10, top: 10, bottom: 10),
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 1, color: Colors.grey),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                "assets/images/lindkin.png",
+                                width: 48,
+                                height: 48,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: const [
+                                  Text(
+                                    "LinkedIn",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w600,
+                                        color: blackColor),
+                                  ),
+                                  Text(
+                                    "Nauman Aziz",
+                                    style: TextStyle(
+                                        fontFamily: poppinsLight,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400,
+                                        color: primaryColor),
+                                  ),
+                                ],
+                              )
+                            ],
+                          )),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () async {
+                  if (name.text.isNotEmpty &&
+                      email.text.isNotEmpty &&
+                      message.text.isNotEmpty) {
+                    Map<String, dynamic> templateParams = {
+                      'name': name.text,
+                      'email': email.text,
+                      'notes': message.text,
+                    };
+
+                    try {
+                      await EmailJS.send(
+                        'service_1oo06mw',
+                        'template_ph52nx9',
+                        templateParams,
+                        const Options(
+                          publicKey: 'otov4MchrvEKmvNhE',
+                          privateKey: 'FOrWHZReSmPtxvazQqzFi',
+                        ),
+                      );
+                      // ignore: prefer_const_declarations
+                      final snackBar = const SnackBar(
+                        duration: Duration(seconds: 2),
+                        backgroundColor: Colors.green,
+                        content: Text(
+                          'Thank you for your information. I will contact you asap.',
+                          style: TextStyle(
+                              fontFamily: poppinsLight,
+                              fontSize: 20,
+                              color: whiteColor),
+                        ),
+                      );
+
+                      // Find the ScaffoldMessenger in the widget tree
+                      // and use it to show a SnackBar.
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      print('SUCCESS!');
+                      Navigator.pop(context);
+                    } catch (error) {
+                      print(error.toString());
+                    }
+                  } else {
+                    log("HERE");
+                    if (email.text.isEmpty) {
+                      email.text = "Enter email";
+                    }
+                    if (message.text.isEmpty) {
+                      message.text = "Enter Something";
+                    }
+                    if (name.text.isEmpty) {
+                      name.text = "Enter Name";
+                    }
+                  }
+                },
+                child: Container(
+                  width: 150,
+                  color: primaryColor,
+                  padding: const EdgeInsets.only(left: 10, right: 10),
+                  height: 50,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Send",
+                          style: TextStyle(
+                              fontFamily: poppinsLight,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              color: whiteColor),
+                        ),
+                        const SizedBox(width: 10),
+                        Image.asset(
+                          "assets/images/send.png",
+                          width: 20,
+                          height: 20,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -989,10 +985,12 @@ class _HomeScreen extends State<HomeScreen> {
   showAlertDialogHireMeMobile(BuildContext context) {
     // Create AlertDialog
     AlertDialog alert = AlertDialog(
+      shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))),
       backgroundColor: whiteColor,
       content: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(30.0),
+          padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -1012,7 +1010,7 @@ class _HomeScreen extends State<HomeScreen> {
                         style: TextStyle(
                             fontFamily: poppinsLight,
                             fontSize: 24,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.bold,
                             color: blackColor),
                       ),
                     ],
@@ -1028,10 +1026,12 @@ class _HomeScreen extends State<HomeScreen> {
                         child: const Text(
                           "If you're ready to get started on your project, I'd love to hear all about your story. So don't hesitate to reach out write your name and  message here and let's get the ball rolling!",
                           style: TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w500,
-                              color: blackColor),
+                            fontFamily: urbanist,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: blackColor,
+                          ),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                     ],
@@ -1052,20 +1052,23 @@ class _HomeScreen extends State<HomeScreen> {
                         "Name",
                         style: TextStyle(
                             fontFamily: poppinsLight,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
-                            color: blackColor),
+                            color: secondaryColor),
                       ),
                       Container(
-                        height: 50,
+                        height: 45,
                         width: MediaQuery.of(context).size.width * 0.6,
-                        padding: const EdgeInsets.only(left: 10),
+                        padding: const EdgeInsets.only(left: 10, top: 10),
                         decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
+                            border: Border.all(
+                                width: 1, color: const Color(0xFFE6E6E6)),
                             borderRadius: BorderRadius.circular(5)),
                         child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
+                          textAlignVertical: TextAlignVertical.top,
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(bottom: 20)),
                           controller: name,
                           style: const TextStyle(
                               fontFamily: poppinsLight,
@@ -1081,20 +1084,23 @@ class _HomeScreen extends State<HomeScreen> {
                         "Email",
                         style: TextStyle(
                             fontFamily: poppinsLight,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
-                            color: blackColor),
+                            color: secondaryColor),
                       ),
                       Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width * 0.6,
-                        padding: const EdgeInsets.only(left: 10),
+                        padding: const EdgeInsets.only(left: 10, top: 10),
                         decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
+                            border: Border.all(
+                                width: 1, color: const Color(0xFFE6E6E6)),
                             borderRadius: BorderRadius.circular(5)),
                         child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
+                          textAlignVertical: TextAlignVertical.top,
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(bottom: 20)),
                           controller: email,
                           style: const TextStyle(
                               fontFamily: poppinsLight,
@@ -1110,20 +1116,23 @@ class _HomeScreen extends State<HomeScreen> {
                         "Message",
                         style: TextStyle(
                             fontFamily: poppinsLight,
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w400,
-                            color: blackColor),
+                            color: secondaryColor),
                       ),
                       Container(
                         //height: 185,
                         width: MediaQuery.of(context).size.width * 0.6,
-                        padding: const EdgeInsets.only(left: 10),
+                        padding: const EdgeInsets.only(left: 10, top: 10),
                         decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Colors.grey),
+                            border: Border.all(
+                                width: 1, color: const Color(0xFFE6E6E6)),
                             borderRadius: BorderRadius.circular(5)),
                         child: TextFormField(
-                          decoration:
-                              const InputDecoration(border: InputBorder.none),
+                          textAlignVertical: TextAlignVertical.top,
+                          decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              contentPadding: EdgeInsets.only(bottom: 20)),
                           controller: message,
                           style: const TextStyle(
                               fontFamily: poppinsLight,
@@ -1174,10 +1183,7 @@ class _HomeScreen extends State<HomeScreen> {
                     onTap: () async {
                       if (name.text.isNotEmpty &&
                           email.text.isNotEmpty &&
-                          message.text.isNotEmpty &&
-                          name.text == "Enter Name" &&
-                          message.text == "Enter Something" &&
-                          email.text == "Enter email") {
+                          message.text.isNotEmpty) {
                         Map<String, dynamic> templateParams = {
                           'name': name.text,
                           'email': email.text,
@@ -1194,6 +1200,22 @@ class _HomeScreen extends State<HomeScreen> {
                               privateKey: 'FOrWHZReSmPtxvazQqzFi',
                             ),
                           );
+                          // ignore: prefer_const_declarations
+                          final snackBar = const SnackBar(
+                            duration: Duration(seconds: 2),
+                            backgroundColor: Colors.green,
+                            content: Text(
+                              'Thank you for your information. I will contact you asap.',
+                              style: TextStyle(
+                                  fontFamily: poppinsLight,
+                                  fontSize: 20,
+                                  color: whiteColor),
+                            ),
+                          );
+
+                          // Find the ScaffoldMessenger in the widget tree
+                          // and use it to show a SnackBar.
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
                           print('SUCCESS!');
                           Navigator.pop(context);
                         } catch (error) {

@@ -81,7 +81,7 @@ class AboutMeMobile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Top Rated",
+                        "Top Rated Plus",
                         style: TextStyle(
                             fontFamily: urbanist,
                             fontSize: 24,
@@ -141,7 +141,7 @@ class AboutMeMobile extends StatelessWidget {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: const Text(
-                          "I'm a top rated freelancer on Upwork and fiverr. Currently their are more than 10 apps live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
+                          "I'm a top rated plus freelancer on Upwork and fiverr. Currently their are more than 10 apps live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
                           style: TextStyle(
                               fontFamily: poppinsLight,
                               fontSize: 18,

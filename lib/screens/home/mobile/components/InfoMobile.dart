@@ -140,18 +140,25 @@ class InfoMobile extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Container(
-              color: primaryColor,
-              width: 160,
-              height: 40,
-              child: const Center(
-                child: Text(
-                  "Download Resume",
-                  style: TextStyle(
-                      fontFamily: poppinsLight,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                      color: whiteColor),
+            GestureDetector(
+              onTap: () {
+                Uri url = Uri.parse(
+                    "https://drive.google.com/file/d/1JqO2t-xSPkMba1HEUILMZuyP-LsCQiyw/view?usp=share_link");
+                _launchInBrowser(url);
+              },
+              child: Container(
+                color: primaryColor,
+                width: 160,
+                height: 40,
+                child: const Center(
+                  child: Text(
+                    "Download Resume",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: whiteColor),
+                  ),
                 ),
               ),
             ),
