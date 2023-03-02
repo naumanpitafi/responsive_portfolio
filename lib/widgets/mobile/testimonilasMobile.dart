@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:naumanaziz/screens/constants.dart';
 import 'package:smooth_star_rating_null_safety/smooth_star_rating_null_safety.dart';
@@ -14,7 +16,7 @@ class TestimionialWidgetMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.7,
+      //  width: MediaQuery.of(context).size.width * 0.6,
       decoration: BoxDecoration(
         color: whiteColor,
         boxShadow: [
@@ -26,6 +28,7 @@ class TestimionialWidgetMobile extends StatelessWidget {
           ),
         ],
       ),
+      margin: const EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
       padding: const EdgeInsets.only(top: 10, bottom: 10, left: 15, right: 15),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -47,14 +50,20 @@ class TestimionialWidgetMobile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                        fontFamily: urbanist,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Color(0xff38327C)),
-                  ),
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Wrap(
+                        children: [
+                          Text(
+                            title,
+                            style: const TextStyle(
+                                fontFamily: urbanist,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff38327C)),
+                          ),
+                        ],
+                      )),
                   Text(
                     subtitle,
                     style: const TextStyle(
@@ -71,8 +80,8 @@ class TestimionialWidgetMobile extends StatelessWidget {
                       size: 20.0,
                       filledIconData: Icons.star,
                       halfFilledIconData: Icons.star,
-                      color: Color(0xffFFB443),
-                      borderColor: Color(0xffFFB443),
+                      color: const Color(0xffFFB443),
+                      borderColor: const Color(0xffFFB443),
                       spacing: 0.0),
                 ],
               ),
@@ -89,7 +98,7 @@ class TestimionialWidgetMobile extends StatelessWidget {
                 maxLines: 3,
                 style: const TextStyle(
                     fontFamily: urbanist,
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: FontWeight.w400,
                     color: Color(0xff878CBD)),
               ),

@@ -8,9 +8,9 @@ class HowCanMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 20, top: 80, bottom: 80),
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.7,
+        //height: MediaQuery.of(context).size.height * 0.7,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/mobilebg2.png'),
@@ -27,7 +27,7 @@ class HowCanMobile extends StatelessWidget {
                 style: TextStyle(
                     fontFamily: urbanist,
                     fontSize: 36,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w400,
                     color: whiteColor),
               ),
               const SizedBox(
@@ -49,7 +49,10 @@ class HowCanMobile extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              Row(
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 10,
+                runSpacing: 20,
                 children: [
                   DelayedDisplay(
                       slidingBeginOffset: const Offset(0.35, 0.0),
@@ -59,13 +62,6 @@ class HowCanMobile extends StatelessWidget {
                       slidingBeginOffset: const Offset(0.35, 0.0),
                       delay: const Duration(milliseconds: 1000),
                       child: hcihy("Flutter", "assets/images/hc2.png")),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
                   DelayedDisplay(
                       slidingBeginOffset: const Offset(0.35, 0.0),
                       delay: const Duration(milliseconds: 1000),
@@ -74,19 +70,12 @@ class HowCanMobile extends StatelessWidget {
                       slidingBeginOffset: const Offset(0.35, 0.0),
                       delay: const Duration(milliseconds: 1500),
                       child: hcihy("Website Design", "assets/images/hc4.png")),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                children: [
                   DelayedDisplay(
                       slidingBeginOffset: const Offset(0.35, 0.0),
                       delay: const Duration(milliseconds: 1500),
                       child: hcihy("App Design", "assets/images/hc5.png")),
                 ],
-              )
+              ),
             ],
           ),
         ));
@@ -96,6 +85,7 @@ class HowCanMobile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 5, right: 5),
       child: Container(
+        width: 200,
         padding:
             const EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 10),
         decoration: BoxDecoration(

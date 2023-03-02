@@ -36,14 +36,17 @@ class GetinTouchMobile extends StatelessWidget {
                     const SizedBox(
                       height: 50,
                     ),
-                    const Text(
-                      "Want to discuss a project, collaborate, or say hello?",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontFamily: poppinsLight,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w300,
-                          color: blackColor),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: const Text(
+                        "Want to discuss a project, collaborate, or say hello?",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontFamily: poppinsLight,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w300,
+                            color: blackColor),
+                      ),
                     ),
                     Row(
                       children: const [
@@ -91,7 +94,7 @@ class GetinTouchMobile extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Uri url = Uri.parse(
                       "https://www.linkedin.com/in/nauman-aziz-pitafi-34994115/");
@@ -106,7 +109,7 @@ class GetinTouchMobile extends StatelessWidget {
               const SizedBox(
                 width: 20,
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Uri url = Uri.parse("https://www.behance.net/nauman3998");
                   _launchInBrowser(url);
@@ -120,7 +123,7 @@ class GetinTouchMobile extends StatelessWidget {
               const SizedBox(
                 width: 20,
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Uri url = Uri.parse("https://dribbble.com/napitafi1");
                   _launchInBrowser(url);

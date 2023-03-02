@@ -117,15 +117,6 @@ class _HomeScreen extends State<HomeScreen> {
                       ),
                     ),
                   ),
-
-                  // Padding(
-                  //   padding: const EdgeInsets.only(right: 10.0),
-                  //   child: Image.asset(
-                  //     "assets/images/signature.png",
-                  //     width: 100,
-                  //     height: 30,
-                  //   ),
-                  // ),
                 ]),
       drawer: Drawer(
         backgroundColor: whiteColor,
@@ -306,83 +297,58 @@ class _HomeScreen extends State<HomeScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            //appbar for
-            if (Responsive.isDesktop(context)) ...[
-              Container(
-                color: whiteColor,
-                height: 37,
-              ),
-              Container(
-                color: whiteColor,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Spacer(
-                      flex: 1,
-                    ),
-                    Image.asset(
-                      "assets/images/signature.png",
-                      width: 147,
-                      height: 37,
-                    ),
-                    const Spacer(
-                      flex: 5,
-                    ),
-                    // ignore: avoid_unnecessary_containers
-                    Row(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            scrollPointAbout();
-                          },
-                          child: MouseRegion(
-                            onEnter: (event) {
-                              onEntered(true);
-                            },
-                            onExit: (event) {
-                              onEntered(false);
-                            },
-                            child: aboutcheck
-                                ? const Text(
-                                    "About",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900,
-                                        color: primaryColor),
-                                  )
-                                : const Text(
-                                    "About",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400,
-                                        color: blackColor),
-                                  ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 44,
-                        ),
-                        GestureDetector(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(Responsive.isDesktop(context)
+                    ? "assets/images/animated.png"
+                    : "assets/images/SE.png"),
+                fit: BoxFit.cover)),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              //appbar for
+              if (Responsive.isDesktop(context)) ...[
+                Container(
+                  color: whiteColor,
+                  height: 37,
+                ),
+                Container(
+                  color: whiteColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Spacer(
+                        flex: 1,
+                      ),
+                      Image.asset(
+                        "assets/images/signature.png",
+                        width: 147,
+                        height: 37,
+                      ),
+                      const Spacer(
+                        flex: 5,
+                      ),
+                      // ignore: avoid_unnecessary_containers
+                      Row(
+                        children: [
+                          GestureDetector(
                             onTap: () {
-                              scrollPointService();
+                              scrollPointAbout();
                             },
                             child: MouseRegion(
                               onEnter: (event) {
-                                onEntered1(true);
+                                onEntered(true);
                               },
                               onExit: (event) {
-                                onEntered1(false);
+                                onEntered(false);
                               },
-                              child: servicecheck
+                              child: aboutcheck
                                   ? const Text(
-                                      "Service",
+                                      "About",
                                       style: TextStyle(
                                           fontFamily: poppinsLight,
                                           fontSize: 18,
@@ -390,181 +356,215 @@ class _HomeScreen extends State<HomeScreen> {
                                           color: primaryColor),
                                     )
                                   : const Text(
-                                      "Service",
+                                      "About",
                                       style: TextStyle(
                                           fontFamily: poppinsLight,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w400,
                                           color: blackColor),
                                     ),
-                            )),
-                        const SizedBox(
-                          width: 44,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            scrollPointProjects();
-                          },
-                          child: MouseRegion(
-                            onEnter: (event) {
-                              onEntered2(true);
-                            },
-                            onExit: (event) {
-                              onEntered2(false);
-                            },
-                            child: projectscheck
-                                ? const Text(
-                                    "Projects",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900,
-                                        color: primaryColor),
-                                  )
-                                : const Text(
-                                    "Projects",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400,
-                                        color: blackColor),
-                                  ),
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          width: 44,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            scrollPointTestimonilas();
-                          },
-                          child: MouseRegion(
-                            onEnter: (event) {
-                              onEntered3(true);
-                            },
-                            onExit: (event) {
-                              onEntered3(false);
-                            },
-                            child: reviewscheck
-                                ? const Text(
-                                    "Reviews",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900,
-                                        color: primaryColor),
-                                  )
-                                : const Text(
-                                    "Reviews",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400,
-                                        color: blackColor),
-                                  ),
+                          const SizedBox(
+                            width: 44,
                           ),
-                        ),
-                        const SizedBox(
-                          width: 44,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            scrollPointContact();
-                          },
-                          child: MouseRegion(
-                            onEnter: (event) {
-                              onEntered4(true);
-                            },
-                            onExit: (event) {
-                              onEntered4(false);
-                            },
-                            child: contactcheck
-                                ? const Text(
-                                    "Contact",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w900,
-                                        color: primaryColor),
-                                  )
-                                : const Text(
-                                    "Contact",
-                                    style: TextStyle(
-                                        fontFamily: poppinsLight,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w400,
-                                        color: blackColor),
-                                  ),
+                          GestureDetector(
+                              onTap: () {
+                                scrollPointService();
+                              },
+                              child: MouseRegion(
+                                onEnter: (event) {
+                                  onEntered1(true);
+                                },
+                                onExit: (event) {
+                                  onEntered1(false);
+                                },
+                                child: servicecheck
+                                    ? const Text(
+                                        "Service",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w900,
+                                            color: primaryColor),
+                                      )
+                                    : const Text(
+                                        "Service",
+                                        style: TextStyle(
+                                            fontFamily: poppinsLight,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w400,
+                                            color: blackColor),
+                                      ),
+                              )),
+                          const SizedBox(
+                            width: 44,
                           ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(
-                      flex: 5,
-                    ),
-                    GestureDetector(
-                      onTap: (() {
-                        //dialouge box
-                        showAlertDialogHireMe(context);
-                      }),
-                      child: Container(
-                        color: blackColor,
-                        width: 180,
-                        height: 40,
-                        child: const Center(
-                          child: Text(
-                            "Hire me!",
-                            style: TextStyle(
-                                fontFamily: poppinsLight,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w600,
-                                color: whiteColor),
+                          GestureDetector(
+                            onTap: () {
+                              scrollPointProjects();
+                            },
+                            child: MouseRegion(
+                              onEnter: (event) {
+                                onEntered2(true);
+                              },
+                              onExit: (event) {
+                                onEntered2(false);
+                              },
+                              child: projectscheck
+                                  ? const Text(
+                                      "Projects",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                          color: primaryColor),
+                                    )
+                                  : const Text(
+                                      "Projects",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400,
+                                          color: blackColor),
+                                    ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 44,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              scrollPointTestimonilas();
+                            },
+                            child: MouseRegion(
+                              onEnter: (event) {
+                                onEntered3(true);
+                              },
+                              onExit: (event) {
+                                onEntered3(false);
+                              },
+                              child: reviewscheck
+                                  ? const Text(
+                                      "Reviews",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                          color: primaryColor),
+                                    )
+                                  : const Text(
+                                      "Reviews",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400,
+                                          color: blackColor),
+                                    ),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 44,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              scrollPointContact();
+                            },
+                            child: MouseRegion(
+                              onEnter: (event) {
+                                onEntered4(true);
+                              },
+                              onExit: (event) {
+                                onEntered4(false);
+                              },
+                              child: contactcheck
+                                  ? const Text(
+                                      "Contact",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                          color: primaryColor),
+                                    )
+                                  : const Text(
+                                      "Contact",
+                                      style: TextStyle(
+                                          fontFamily: poppinsLight,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w400,
+                                          color: blackColor),
+                                    ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(
+                        flex: 5,
+                      ),
+                      InkWell(
+                        onTap: (() {
+                          //dialouge box
+                          showAlertDialogHireMe(context);
+                        }),
+                        child: Container(
+                          color: blackColor,
+                          width: 180,
+                          height: 40,
+                          child: const Center(
+                            child: Text(
+                              "Hire me!",
+                              style: TextStyle(
+                                  fontFamily: poppinsLight,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                  color: whiteColor),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    const Spacer(
-                      flex: 1,
-                    ),
-                  ],
+                      const Spacer(
+                        flex: 1,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const Info(),
-              //howcanihelpyou
-              Container(key: service, child: const HowCanIhELP()),
-              Container(
-                height: 50,
-                color: Colors.transparent,
-              ),
-              //about me
-              GestureDetector(key: about, child: const AboutMe()),
-              //education
-              const Education(),
-              //certificates
-              Container(color: whiteColor, child: const Certificates()),
-              //projects
-              Container(key: project, child: const Projects()),
-              //testimionials
-              Container(key: testimonials, child: const Testinomials()),
-              //get in touch
-              Container(key: contact, child: const GetinTouch()),
-            ] else ...[
-              const InfoMobile(),
-              Container(key: service, child: const HowCanMobile()),
-              Container(
-                height: 50,
-                color: Colors.transparent,
-              ),
-              Container(key: about, child: const AboutMeMobile()),
-              //education
-              const EducationMobile(),
-              //certifictates
-              const CertificatesMobile(),
-              Container(key: project, child: const ProjectsMobile()),
-              Container(key: testimonials, child: const TestinomialsMobile()),
-              Container(key: contact, child: const GetinTouchMobile()),
+                const Info(),
+                //howcanihelpyou
+                Container(key: service, child: const HowCanIhELP()),
+                Container(
+                  height: 300,
+                  color: Colors.transparent,
+                ),
+                //about me
+                GestureDetector(key: about, child: const AboutMe()),
+                //education
+                const Education(),
+                //certificates
+                Container(color: whiteColor, child: const Certificates()),
+                //projects
+                Container(key: project, child: const Projects()),
+                //testimionials
+                Container(key: testimonials, child: const Testinomials()),
+                //get in touch
+                Container(key: contact, child: const GetinTouch()),
+              ] else ...[
+                const InfoMobile(),
+                Container(key: service, child: const HowCanMobile()),
+                Container(
+                  height: 200,
+                  color: Colors.transparent,
+                ),
+                Container(key: about, child: const AboutMeMobile()),
+                //education
+                const EducationMobile(),
+                //certifictates
+                const CertificatesMobile(),
+                Container(key: project, child: const ProjectsMobile()),
+                Container(key: testimonials, child: const TestinomialsMobile()),
+                Container(key: contact, child: const GetinTouchMobile()),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

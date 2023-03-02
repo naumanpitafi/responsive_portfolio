@@ -1,8 +1,6 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:flutter/material.dart';
 import 'package:naumanaziz/screens/constants.dart';
-import 'package:naumanaziz/screens/responsive.dart';
 
 class HowCanIhELP extends StatelessWidget {
   const HowCanIhELP({Key? key}) : super(key: key);
@@ -30,7 +28,7 @@ class HowCanIhELP extends StatelessWidget {
                 style: TextStyle(
                     fontFamily: urbanist,
                     fontSize: 50,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w400,
                     color: whiteColor),
               ),
               const SizedBox(
@@ -44,7 +42,7 @@ class HowCanIhELP extends StatelessWidget {
                     style: TextStyle(
                         fontFamily: poppinsLight,
                         fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w300,
                         color: whiteColor),
                   ),
                 ),

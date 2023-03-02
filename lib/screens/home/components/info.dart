@@ -95,7 +95,7 @@ class Info extends StatelessWidget {
               ),
               Row(
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Uri url = Uri.parse(
                           "https://www.linkedin.com/in/nauman-aziz-pitafi-34994115/");
@@ -110,7 +110,7 @@ class Info extends StatelessWidget {
                   const SizedBox(
                     width: 20,
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Uri url = Uri.parse("https://www.behance.net/nauman3998");
                       _launchInBrowser(url);
@@ -124,7 +124,7 @@ class Info extends StatelessWidget {
                   const SizedBox(
                     width: 20,
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Uri url = Uri.parse("https://dribbble.com/napitafi1");
                       _launchInBrowser(url);
@@ -140,7 +140,7 @@ class Info extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Uri url = Uri.parse(
                       "https://drive.google.com/file/d/1JqO2t-xSPkMba1HEUILMZuyP-LsCQiyw/view?usp=share_link");

@@ -85,7 +85,7 @@ class CertificatesMobile extends StatelessWidget {
                 width: 20,
               ),
               SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
+                  width: MediaQuery.of(context).size.width * 0.6,
                   height: 400,
                   child: ScrollablePositionedList.builder(
                     scrollDirection: Axis.horizontal,
@@ -98,7 +98,7 @@ class CertificatesMobile extends StatelessWidget {
                       },
                       child: Image.asset(
                         certificates[index].toString(),
-                        width: 250,
+                        width: 240,
                       ),
                     ),
                   )),

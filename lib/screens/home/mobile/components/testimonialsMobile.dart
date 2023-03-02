@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:naumanaziz/screens/constants.dart';
 import 'package:naumanaziz/widgets/mobile/testimonilasMobile.dart';
-import 'package:naumanaziz/widgets/testimonialwidget.dart';
 
 class TestinomialsMobile extends StatelessWidget {
   const TestinomialsMobile({Key? key}) : super(key: key);
@@ -42,7 +41,8 @@ class TestinomialsMobile extends StatelessWidget {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.8,
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 10, right: 10),
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage(
@@ -59,9 +59,9 @@ class TestinomialsMobile extends StatelessWidget {
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        height: 220,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
                           children: [
                             TestimionialWidgetMobile(
                               image: "assets/images/userreview.png",
@@ -69,6 +69,26 @@ class TestinomialsMobile extends StatelessWidget {
                               subtitle: "@Upwork",
                               decs:
                                   "He is very proactive and understand the instruction clearly. He is fast pace and have a very good communication skill. His work is also creative and delivered before the due time.I highly recommend.",
+                            ),
+                            TestimionialWidgetMobile(
+                              image: "assets/images/userreview.png",
+                              title: "Mobile Apps Improvements",
+                              subtitle: "@Upwork",
+                              decs:
+                                  "Good work, and will work with him again.\n\n",
+                            ),
+                            TestimionialWidgetMobile(
+                              image: "assets/images/userreview.png",
+                              title: "Mobile Apps Improvements",
+                              subtitle: "@Upwork",
+                              decs:
+                                  "Hardworking guy, Honest. he helped us a lot with our projects and completed tasks on time without any issues.",
+                            ),
+                            TestimionialWidgetMobile(
+                              image: "assets/images/userreview.png",
+                              title: "Flutter expert",
+                              subtitle: "@Upwork",
+                              decs: "Great work.\n\n",
                             ),
                           ],
                         ),

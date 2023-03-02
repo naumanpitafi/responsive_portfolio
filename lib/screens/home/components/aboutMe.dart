@@ -7,14 +7,14 @@ class AboutMe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1),
       width: MediaQuery.of(context).size.width,
       color: whiteColor,
       height: 500,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(width: MediaQuery.of(context).size.width * 0.1),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,14 +40,15 @@ class AboutMe extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(
-            flex: 3,
+          const SizedBox(
+            height: 60,
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
+                spacing: 100,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,17 +70,28 @@ class AboutMe extends StatelessWidget {
                             color: blackColor),
                       ),
                       const SizedBox(
-                        height: 18,
+                        height: 10,
                       ),
                       Container(
                         width: 254,
                         height: 4,
                         color: blackColor,
                       ),
+                      const SizedBox(
+                        height: 18,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: const Text(
+                          "I'm an experienced and detail-oriented UI/UX designer and Flutter developer from Pakistan who is currently doing Ph.D. in Computer Sciences from NCBA&E. I help my clients to build business solutions through the design language and improve their products.",
+                          style: TextStyle(
+                              fontFamily: poppinsLight,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: blackColor),
+                        ),
+                      ),
                     ],
-                  ),
-                  const SizedBox(
-                    width: 100,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,51 +113,20 @@ class AboutMe extends StatelessWidget {
                             color: blackColor),
                       ),
                       const SizedBox(
-                        height: 18,
+                        height: 10,
                       ),
                       Container(
                         width: 254,
                         height: 4,
                         color: blackColor,
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 80,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: const Text(
-                          "I'm an experienced and detail-oriented UI/UX designer and Flutter developer from Pakistan who is currently doing Ph.D. in Computer Sciences from NCBA&E. I help my clients to build business solutions through the design language and improve their products.",
-                          style: TextStyle(
-                              fontFamily: poppinsLight,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400,
-                              color: blackColor),
-                        ),
+                      const SizedBox(
+                        height: 18,
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.3,
+                        width: MediaQuery.of(context).size.width * 0.4,
                         child: const Text(
-                          "I'm a top rated plus freelancer on Upwork and fiverr. Currently their are more than 10 apps live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
+                          "I'm a top rated plus freelancer on Upwork and fiverr. Currently there are more than 10 x live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
                           style: TextStyle(
                               fontFamily: poppinsLight,
                               fontSize: 18,
@@ -159,7 +140,6 @@ class AboutMe extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer()
         ],
       ),
     );

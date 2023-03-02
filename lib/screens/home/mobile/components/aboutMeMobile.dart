@@ -7,10 +7,10 @@ class AboutMeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(left: 30, right: 30, top: 30, bottom: 30),
       width: MediaQuery.of(context).size.width,
       color: whiteColor,
-      height: 600,
+      // height: 600,
       child: Column(
         children: [
           Column(
@@ -38,83 +38,43 @@ class AboutMeMobile extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
+          const SizedBox(
+            height: 30,
+          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "15+ Years",
-                        style: TextStyle(
-                            fontFamily: urbanist,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: blackColor),
-                      ),
-                      const Text(
-                        "Experience",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      Container(
-                        width: 102,
-                        height: 4,
-                        color: blackColor,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 100,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Top Rated Plus",
-                        style: TextStyle(
-                            fontFamily: urbanist,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                            color: blackColor),
-                      ),
-                      const Text(
-                        "Upwork/ Fiver",
-                        style: TextStyle(
-                            fontFamily: poppinsLight,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: blackColor),
-                      ),
-                      const SizedBox(
-                        height: 18,
-                      ),
-                      Container(
-                        width: 112,
-                        height: 4,
-                        color: blackColor,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const Text(
+                    "15+ Years",
+                    style: TextStyle(
+                        fontFamily: urbanist,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: blackColor),
+                  ),
+                  const Text(
+                    "Experience",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor),
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Container(
+                    width: 102,
+                    height: 4,
+                    color: blackColor,
+                  ),
+                  const SizedBox(
+                    height: 22,
+                  ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,6 +92,38 @@ class AboutMeMobile extends StatelessWidget {
                       ),
                     ],
                   ),
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Top Rated Plus",
+                    style: TextStyle(
+                        fontFamily: urbanist,
+                        fontSize: 24,
+                        fontWeight: FontWeight.w700,
+                        color: blackColor),
+                  ),
+                  const Text(
+                    "Upwork/ Fiver",
+                    style: TextStyle(
+                        fontFamily: poppinsLight,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        color: blackColor),
+                  ),
+                  const SizedBox(
+                    height: 18,
+                  ),
+                  Container(
+                    width: 112,
+                    height: 4,
+                    color: blackColor,
+                  ),
                   const SizedBox(
                     height: 22,
                   ),
@@ -141,7 +133,7 @@ class AboutMeMobile extends StatelessWidget {
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: const Text(
-                          "I'm a top rated plus freelancer on Upwork and fiverr. Currently their are more than 10 apps live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
+                          "I'm a top rated plus freelancer on Upwork and fiverr. Currently there are more than 10 apps live on App store and Play store.I have worked with companies from UAE, CHINA, and USA to achieve their business goals.",
                           style: TextStyle(
                               fontFamily: poppinsLight,
                               fontSize: 18,
@@ -155,9 +147,6 @@ class AboutMeMobile extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(
-            flex: 2,
-          )
         ],
       ),
     );

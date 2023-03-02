@@ -14,15 +14,15 @@ class TestimionialWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.35,
+      width: MediaQuery.of(context).size.width * 0.4,
       decoration: BoxDecoration(
         color: whiteColor,
         boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(255, 218, 218, 218).withOpacity(0.50),
+            color: const Color.fromARGB(255, 218, 218, 218).withOpacity(0.50),
             blurRadius: 10,
             //spreadRadius: 1,
-            offset: Offset(4, 8), // Shadow position
+            offset: const Offset(4, 8), // Shadow position
           ),
         ],
       ),
@@ -71,8 +71,8 @@ class TestimionialWidget extends StatelessWidget {
                       size: 20.0,
                       filledIconData: Icons.star,
                       halfFilledIconData: Icons.star,
-                      color: Color(0xffFFB443),
-                      borderColor: Color(0xffFFB443),
+                      color: const Color(0xffFFB443),
+                      borderColor: const Color(0xffFFB443),
                       spacing: 0.0),
                 ],
               ),
