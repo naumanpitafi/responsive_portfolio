@@ -140,7 +140,7 @@ class _HomeScreen extends State<HomeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     scrollPointAbout();
                     Navigator.pop(context);
@@ -171,7 +171,7 @@ class _HomeScreen extends State<HomeScreen> {
               // ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     scrollPointService();
                     Navigator.pop(context);
@@ -202,7 +202,7 @@ class _HomeScreen extends State<HomeScreen> {
               // ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     scrollPointProjects();
                     Navigator.pop(context);
@@ -233,7 +233,7 @@ class _HomeScreen extends State<HomeScreen> {
               // ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     scrollPointTestimonilas();
                     Navigator.pop(context);
@@ -264,7 +264,7 @@ class _HomeScreen extends State<HomeScreen> {
               // ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: GestureDetector(
+                child: InkWell(
                   onTap: () {
                     scrollPointContact();
                     Navigator.pop(context);
@@ -335,7 +335,7 @@ class _HomeScreen extends State<HomeScreen> {
                       // ignore: avoid_unnecessary_containers
                       Row(
                         children: [
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               scrollPointAbout();
                             },
@@ -368,7 +368,7 @@ class _HomeScreen extends State<HomeScreen> {
                           const SizedBox(
                             width: 44,
                           ),
-                          GestureDetector(
+                          InkWell(
                               onTap: () {
                                 scrollPointService();
                               },
@@ -400,7 +400,7 @@ class _HomeScreen extends State<HomeScreen> {
                           const SizedBox(
                             width: 44,
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               scrollPointProjects();
                             },
@@ -433,7 +433,7 @@ class _HomeScreen extends State<HomeScreen> {
                           const SizedBox(
                             width: 44,
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               scrollPointTestimonilas();
                             },
@@ -466,7 +466,7 @@ class _HomeScreen extends State<HomeScreen> {
                           const SizedBox(
                             width: 44,
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               scrollPointContact();
                             },

@@ -74,78 +74,81 @@ class _Projects extends State<Projects> {
                 StaggeredGridTile.count(
                     crossAxisCellCount: 3,
                     mainAxisCellCount: 2,
-                    child: MouseRegion(
-                      onEnter: (event) => {onEntered(true)},
-                      onExit: (event) => {onEntered(false)},
-                      child: p1
-                          ? Stack(
-                              fit: StackFit.expand,
-                              children: [
-                                InkWell(
-                                  onHover: ((value) {
-                                    log(value.toString());
-                                    setState(() {
-                                      p1 = value;
-                                    });
-                                  }),
-                                  child: Image.asset('assets/images/p1.png',
-                                      fit: BoxFit.cover),
-                                ),
-                                InkWell(
-                                  onHover: ((value) {
-                                    log(value.toString());
-                                    setState(() {
-                                      p1 = value;
-                                    });
-                                  }),
-                                  child: ClipRRect(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                          sigmaX: 5, sigmaY: 5),
-                                      child: Container(
-                                        color: const Color(0xff8183F8)
-                                            .withOpacity(0.2),
-                                        alignment: Alignment.center,
-                                        child: DelayedDisplay(
-                                          delay:
-                                              const Duration(milliseconds: 300),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'United Insurance -'
-                                                    .toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 30,
-                                                    fontWeight:
-                                                        FontWeight.w800),
-                                              ),
-                                              Text(
-                                                ' Insurance Website'
-                                                    .toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 30,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                            ],
+                    child: InkWell(
+                      onTap: () => showAlertDialog(context, myUICImages),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEntered(true)},
+                        onExit: (event) => {onEntered(false)},
+                        child: p1
+                            ? Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  InkWell(
+                                    onHover: ((value) {
+                                      log(value.toString());
+                                      setState(() {
+                                        p1 = value;
+                                      });
+                                    }),
+                                    child: Image.asset('assets/images/p1.png',
+                                        fit: BoxFit.cover),
+                                  ),
+                                  InkWell(
+                                    onHover: ((value) {
+                                      log(value.toString());
+                                      setState(() {
+                                        p1 = value;
+                                      });
+                                    }),
+                                    child: ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xff8183F8)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'United Insurance -'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  ' Insurance Website'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            )
-                          : Image.asset(
-                              "assets/images/p1.png",
-                              fit: BoxFit.fill,
-                            ),
+                                ],
+                              )
+                            : Image.asset(
+                                "assets/images/p1.png",
+                                fit: BoxFit.fill,
+                              ),
+                      ),
                     )),
                 StaggeredGridTile.count(
                     crossAxisCellCount: 1,
@@ -174,12 +177,12 @@ class _Projects extends State<Projects> {
                                           child: DelayedDisplay(
                                             delay: const Duration(
                                                 milliseconds: 300),
-                                            child: Row(
+                                            child: Column(
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  'United Tracker -'
+                                                  'United Tracker'
                                                       .toUpperCase(),
                                                   style: const TextStyle(
                                                       fontFamily: urbanist,
@@ -215,62 +218,65 @@ class _Projects extends State<Projects> {
                 StaggeredGridTile.count(
                     crossAxisCellCount: 1,
                     mainAxisCellCount: 1,
-                    child: MouseRegion(
-                      onEnter: (event) => {onEnteredp3(true)},
-                      onExit: (event) => {onEnteredp3(false)},
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
-                        child: p3
-                            ? Stack(
-                                fit: StackFit.expand,
-                                children: [
-                                  Image.asset('assets/images/p3.png',
-                                      fit: BoxFit.cover),
-                                  ClipRRect(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                          sigmaX: 5, sigmaY: 5),
-                                      child: Container(
-                                        color: const Color(0xff7AB5AB)
-                                            .withOpacity(0.2),
-                                        alignment: Alignment.center,
-                                        child: DelayedDisplay(
-                                          delay:
-                                              const Duration(milliseconds: 300),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Human pay -'.toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.w800),
-                                              ),
-                                              Text(
-                                                ' Salary app'.toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                            ],
+                    child: InkWell(
+                      onTap: () => showAlertDialog(context, humanPay),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEnteredp3(true)},
+                        onExit: (event) => {onEnteredp3(false)},
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 5.0),
+                          child: p3
+                              ? Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset('assets/images/p3.png',
+                                        fit: BoxFit.cover),
+                                    ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xff7AB5AB)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Human pay'.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  ' Salary app'.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 15,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            : Image.asset(
-                                "assets/images/p3.png",
-                                fit: BoxFit.fitHeight,
-                              ),
+                                  ],
+                                )
+                              : Image.asset(
+                                  "assets/images/p3.png",
+                                  fit: BoxFit.fitHeight,
+                                ),
+                        ),
                       ),
                     )),
                 StaggeredGridTile.count(
@@ -348,8 +354,7 @@ class _Projects extends State<Projects> {
                         onEnter: (event) => {onEnteredp5(true)},
                         onExit: (event) => {onEnteredp5(false)},
                         child: Padding(
-                          padding:
-                              const EdgeInsets.only(right: 10.0, top: 10.0),
+                          padding: const EdgeInsets.only(top: 10.0),
                           child: p5
                               ? Stack(
                                   fit: StackFit.expand,
@@ -474,63 +479,66 @@ class _Projects extends State<Projects> {
                 StaggeredGridTile.count(
                     crossAxisCellCount: 2,
                     mainAxisCellCount: 2,
-                    child: MouseRegion(
-                      onEnter: (event) => {onEnteredp7(true)},
-                      onExit: (event) => {onEnteredp7(false)},
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 10.0),
-                        child: p7
-                            ? Stack(
-                                fit: StackFit.expand,
-                                children: [
-                                  Image.asset('assets/images/p7.png',
-                                      fit: BoxFit.cover),
-                                  ClipRRect(
-                                    child: BackdropFilter(
-                                      filter: ImageFilter.blur(
-                                          sigmaX: 5, sigmaY: 5),
-                                      child: Container(
-                                        color: const Color(0xff86705A)
-                                            .withOpacity(0.2),
-                                        alignment: Alignment.center,
-                                        child: DelayedDisplay(
-                                          delay:
-                                              const Duration(milliseconds: 300),
-                                          child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                'Tawasul - '.toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.w800),
-                                              ),
-                                              Text(
-                                                'Insurance Services'
-                                                    .toUpperCase(),
-                                                style: const TextStyle(
-                                                    fontFamily: urbanist,
-                                                    color: Colors.black,
-                                                    fontSize: 20,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                            ],
+                    child: InkWell(
+                      onTap: () => showAlertDialog(context, tawasulImages),
+                      child: MouseRegion(
+                        onEnter: (event) => {onEnteredp7(true)},
+                        onExit: (event) => {onEnteredp7(false)},
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: p7
+                              ? Stack(
+                                  fit: StackFit.expand,
+                                  children: [
+                                    Image.asset('assets/images/p7.png',
+                                        fit: BoxFit.cover),
+                                    ClipRRect(
+                                      child: BackdropFilter(
+                                        filter: ImageFilter.blur(
+                                            sigmaX: 5, sigmaY: 5),
+                                        child: Container(
+                                          color: const Color(0xff86705A)
+                                              .withOpacity(0.2),
+                                          alignment: Alignment.center,
+                                          child: DelayedDisplay(
+                                            delay: const Duration(
+                                                milliseconds: 300),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  'Tawasul - '.toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.w800),
+                                                ),
+                                                Text(
+                                                  'Insurance Services'
+                                                      .toUpperCase(),
+                                                  style: const TextStyle(
+                                                      fontFamily: urbanist,
+                                                      color: Colors.black,
+                                                      fontSize: 20,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              )
-                            : Image.asset(
-                                "assets/images/p7.png",
-                                fit: BoxFit.cover,
-                              ),
+                                  ],
+                                )
+                              : Image.asset(
+                                  "assets/images/p7.png",
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
                       ),
                     )),
               ],
@@ -633,7 +641,32 @@ class _Projects extends State<Projects> {
     "assets/images/ref5.png",
     "assets/images/ref6.png",
     "assets/images/ref7.png",
-    "assets/images/ref8.png"
+    "assets/images/ref8.png",
+    "assets/images/ref9.png"
+  ];
+
+  List tawasulImages = [
+    "assets/images/tawasul1.png",
+    "assets/images/tawasul2.png",
+    "assets/images/tawasul3.png",
+    "assets/images/tawasul4.png",
+    "assets/images/tawasul5.png",
+    "assets/images/tawasul6.png",
+    "assets/images/tawasul7.png",
+    "assets/images/tawasul8.png",
+    "assets/images/tawasul9.png",
+    "assets/images/tawasul10.png",
+    "assets/images/tawasul11.png"
+  ];
+
+  List myUICImages = [
+    "assets/images/myUIC1.png",
+    "assets/images/myUIC2.png",
+    "assets/images/myUIC3.png",
+    "assets/images/myUIC4.png",
+    "assets/images/myUIC5.png",
+    "assets/images/myUIC6.png",
+    "assets/images/myUIC7.png"
   ];
 
   List utsImages = [
@@ -641,6 +674,26 @@ class _Projects extends State<Projects> {
     "assets/images/uts2.png",
     "assets/images/uts3.png",
     "assets/images/uts4.png",
+  ];
+
+  List humanPay = [
+    "assets/images/hp1.png",
+    "assets/images/hp2.png",
+    "assets/images/hp3.png",
+    "assets/images/hp4.png",
+    "assets/images/hp5.png",
+    "assets/images/hp6.png",
+    "assets/images/hp7.png",
+    "assets/images/hp8.png",
+    "assets/images/hp9.png",
+    "assets/images/hp10.png",
+    "assets/images/hp11.png",
+    "assets/images/hp12.png",
+    "assets/images/hp13.png",
+    "assets/images/hp14.png",
+    "assets/images/hp15.png",
+    "assets/images/hp16.png",
+    "assets/images/hp17.png",
   ];
 
   List uicImages = [
@@ -652,6 +705,8 @@ class _Projects extends State<Projects> {
     "assets/images/uic6.png",
     "assets/images/uic7.png",
     "assets/images/uic8.png",
+    "assets/images/uic9.png",
+    "assets/images/uic10.png",
   ];
   List reflactionImages = [
     "assets/images/reflection1.png",
